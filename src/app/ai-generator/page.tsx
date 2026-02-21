@@ -9,12 +9,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
 import { generateArchitecturalDesignIdeas, type GenerateArchitecturalDesignIdeasOutput } from "@/ai/flows/generate-architectural-design-ideas";
 import { Sparkles, Loader2, MapPin, Hammer, Palette, Plus, X } from "lucide-react";
 
 export default function AIGeneratorPage() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<GenerateArchitecturalDesignIdeasOutput | null>(null);
+  const { toast } = useToast();
   
   const [location, setLocation] = useState("");
   const [style, setStyle] = useState("");
@@ -50,8 +52,17 @@ export default function AIGeneratorPage() {
         specifications
       });
       setResults(output);
+      toast({
+        title: "Success",
+        description: "Your design concepts have been generated!",
+      });
     } catch (error) {
       console.error("Failed to generate ideas:", error);
+      toast({
+        variant: "destructive",
+        title: "Generation Failed",
+        description: "There was an error generating your design ideas. Please try again.",
+      });
     } finally {
       setLoading(false);
     }
@@ -106,7 +117,7 @@ export default function AIGeneratorPage() {
                         placeholder="e.g. Concrete, Oak, Glass" 
                         value={materialInput}
                         onChange={(e) => setMaterialInput(e.target.value)}
-                        onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addMaterial())}
+                        onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addMaterial())}
                       />
                       <Button type="button" size="icon" onClick={addMaterial} variant="secondary"><Plus className="h-4 w-4" /></Button>
                     </div>
@@ -126,7 +137,7 @@ export default function AIGeneratorPage() {
                         placeholder="e.g. Rooftop garden, Home office" 
                         value={specInput}
                         onChange={(e) => setSpecInput(e.target.value)}
-                        onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addSpecification())}
+                        onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addSpecification())}
                       />
                       <Button type="button" size="icon" onClick={addSpecification} variant="secondary"><Plus className="h-4 w-4" /></Button>
                     </div>
@@ -165,7 +176,7 @@ export default function AIGeneratorPage() {
               {loading && (
                 <div className="space-y-8 animate-pulse">
                   {[1, 2].map(i => (
-                    <div key={i} className="h-64 bg-white rounded-2xl"></div>
+                    <Card key={i} className="h-64 bg-white/50 border-none"></Card>
                   ))}
                 </div>
               )}
