@@ -1,0 +1,59 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-main",
+      "description": "Modern glass skyscraper reflecting the sunset",
+      "imageUrl": "https://picsum.photos/seed/101/1920/1080",
+      "imageHint": "modern skyscraper architecture"
+    },
+    {
+      "id": "project-1",
+      "description": "Minimalist concrete house in a forest",
+      "imageUrl": "https://picsum.photos/seed/102/800/600",
+      "imageHint": "minimalist concrete house"
+    },
+    {
+      "id": "project-2",
+      "description": "Sustainable urban housing complex with green balconies",
+      "imageUrl": "https://picsum.photos/seed/103/800/600",
+      "imageHint": "sustainable urban housing"
+    },
+    {
+      "id": "project-3",
+      "description": "Futuristic library interior with curved wooden shelves",
+      "imageUrl": "https://picsum.photos/seed/104/800/600",
+      "imageHint": "futuristic library interior"
+    },
+    {
+      "id": "project-4",
+      "description": "Industrial loft renovation with brick and steel",
+      "imageUrl": "https://picsum.photos/seed/105/800/600",
+      "imageHint": "industrial loft architecture"
+    },
+    {
+      "id": "architect-1",
+      "description": "Professional portrait of a male architect",
+      "imageUrl": "https://picsum.photos/seed/106/400/400",
+      "imageHint": "architect portrait"
+    },
+    {
+      "id": "architect-2",
+      "description": "Professional portrait of a female architect",
+      "imageUrl": "https://picsum.photos/seed/107/400/400",
+      "imageHint": "female architect portrait"
+    },
+    {
+      "id": "blog-1",
+      "description": "Urban planning sketch of a smart city",
+      "imageUrl": "https://picsum.photos/seed/108/800/450",
+      "imageHint": "urban planning sketch"
+    },
+    {
+      "id": "blog-2",
+      "description": "Close-up of innovative sustainable building materials",
+      "imageUrl": "https://picsum.photos/seed/109/800/450",
+      "imageHint": "sustainable building materials"
+    }
+  ]
+}
